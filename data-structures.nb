@@ -1,0 +1,525 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     21194,        515]
+NotebookOptionsPosition[     19426,        476]
+NotebookOutlinePosition[     19829,        492]
+CellTagsIndexPosition[     19786,        489]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Data structures", "Title",
+ CellChangeTimes->{{3.8182276591180873`*^9, 
+  3.818227660557083*^9}},ExpressionUUID->"e08a7af8-7033-445c-a688-\
+cbe21760aefb"],
+
+Cell["\<\
+Learning data structures through visualization and tinkering.\
+\>", "Text",
+ CellChangeTimes->{{3.818227662902091*^9, 
+  3.8182276708710957`*^9}},ExpressionUUID->"b30caaad-357a-49e2-ad14-\
+1c9c81bc97e1"],
+
+Cell[TextData[StyleBox["Stacks", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.8182277099982853`*^9, 3.818227711590288*^9}, {
+  3.8182277604224224`*^9, 3.8182277668554225`*^9}, {3.8182280433179693`*^9, 
+  3.81822804390197*^9}},ExpressionUUID->"838a8615-a791-4c5f-8e81-\
+875ebb8259e5"],
+
+Cell[TextData[{
+ "We compare the speed of a Wolfram Language ",
+ StyleBox["list",
+  FontWeight->"Bold"],
+ " with the stack."
+}], "Text",
+ CellChangeTimes->{{3.8182280572479706`*^9, 
+  3.8182280709059677`*^9}},ExpressionUUID->"3051b0a7-26b2-4d12-8eff-\
+d8db90f236ea"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"stack", " ", "=", " ", 
+   RowBox[{"CreateDataStructure", "[", "\"\<Stack\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"stack", "[", 
+    RowBox[{"\"\<Push\>\"", ",", " ", "i"}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", " ", "1000000"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"notAStack", " ", "=", " ", 
+   RowBox[{"Range", "[", "1000000", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"stack", "[", "\"\<Visualization\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.81822807426997*^9, 3.81822811730097*^9}, {
+  3.8182281545610313`*^9, 3.81822815732203*^9}, {3.818228655036096*^9, 
+  3.8182286551830993`*^9}},
+ CellLabel->"In[45]:=",ExpressionUUID->"e185d61c-685f-4fb5-8342-2e376d4ef887"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{0., 0.}, {40., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["1",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {20., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{60., 0.}, {100., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["2",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {80., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{120., 0.}, {160., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["3",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {140., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{180., 0.}, {220., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["4",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {200., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{240., 0.}, {280., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["5",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {260., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    InsetBox["999992.`3.", {320., 42.026311234992846}, 
+     ImageScaled[{Rational[1, 2], 1}]], InsetBox[
+     PaneBox["\<\"\[Ellipsis]\[Ellipsis]\"\>",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {320., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{360., 0.}, {400., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["999998",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {380., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{420., 0.}, {460., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["999999",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {440., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{480., 0.}, {520., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["1000000",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {500., 12.360679774997896},
+     FormatType->StandardForm]}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{40., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{40., 12.360679774997896`}, {60., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{100., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{100., 12.360679774997896`}, {120., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{160., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{160., 12.360679774997896`}, {180., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{220., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{220., 12.360679774997896`}, {240., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{280., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{280., 12.360679774997896`}, {300., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{340., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{340., 12.360679774997896`}, {360., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{400., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{400., 12.360679774997896`}, {420., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    PointBox[{460., 12.360679774997896`}], 
+    {Arrowheads[Small], 
+     ArrowBox[{{460., 12.360679774997896`}, {480., 12.360679774997896`}}]}}, 
+   InsetBox[
+    StyleBox["\<\"\[DoubleDownArrow]\"\>",
+     StripOnInput->False,
+     FontSize->24,
+     FontWeight->Plain], {500., 52.721359549995796}, 
+    ImageScaled[{Rational[1, 2], 1}],
+    FormatType->StandardForm], InsetBox[
+    StyleBox["\<\"\[DoubleDownArrow]\"\>",
+     StripOnInput->False,
+     FontSize->24,
+     FontWeight->Plain], {500., -28}, ImageScaled[{Rational[1, 2], 0}],
+    FormatType->StandardForm]},
+  AspectRatio->Automatic,
+  FormatType->StandardForm,
+  ImageSize->{524., 84.7213595499958},
+  PlotRange->{{-2., 522.}, {-30, 54.721359549995796`}}]], "Output",
+ CellChangeTimes->{{3.8182286567420936`*^9, 3.8182286817645693`*^9}},
+ CellLabel->"Out[48]=",ExpressionUUID->"2d0a9b40-a850-4806-8263-a4b912304d4b"]
+}, Open  ]],
+
+Cell["Using the stack data structure is over 3000 times faster.", "Text",
+ CellChangeTimes->{{3.8182285278944674`*^9, 
+  3.8182285447934666`*^9}},ExpressionUUID->"6c5aa75e-514d-4ff3-957e-\
+dece1ef5504a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AbsoluteTiming", "[", 
+    RowBox[{
+     RowBox[{"notAStack", "[", 
+      RowBox[{"[", 
+       RowBox[{"-", "1"}], "]"}], "]"}], ";", 
+     RowBox[{
+      RowBox[{"notAStack", "[", 
+       RowBox[{"[", 
+        RowBox[{"-", "1"}], "]"}], "]"}], " ", "=", " ", "Nothing"}]}], "]"}],
+    "[", 
+   RowBox[{"[", "1", "]"}], "]"}], " ", "/", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AbsoluteTiming", "[", 
+    RowBox[{"stack", "[", "\"\<Pop\>\"", "]"}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8182282795040236`*^9, 3.8182283344001617`*^9}, {
+  3.8182283898244524`*^9, 3.818228437200457*^9}, {3.818228475034474*^9, 
+  3.8182285090204687`*^9}},
+ CellLabel->"In[49]:=",ExpressionUUID->"4c92079b-1981-45b5-b0f3-b921ba1a0271"],
+
+Cell[BoxData["3480.571428571429`"], "Output",
+ CellChangeTimes->{{3.8182286777765617`*^9, 3.8182286827335663`*^9}},
+ CellLabel->"Out[49]=",ExpressionUUID->"fa4c63a1-48f8-4423-9558-afc2abd64f93"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Linked Lists", "Subtitle",
+ CellChangeTimes->{{3.8182285971148396`*^9, 
+  3.8182286003308363`*^9}},ExpressionUUID->"06eb0559-f6c7-4c5c-8dae-\
+b61c4524d9dd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ds", "=", 
+   RowBox[{"CreateDataStructure", "[", "\"\<DoublyLinkedList\>\"", "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"ds", "[", 
+    RowBox[{"\"\<Append\>\"", ",", "i"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1000"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ds", "[", "\"\<Visualization\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.818228600989854*^9, 3.8182286009908557`*^9}, {
+  3.8182286479074*^9, 3.8182286480614033`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"45d7a5e5-fb13-43ec-8021-d64483c7fad1"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{0., 0.}, {40., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["1",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {20., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{60., 0.}, {100., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["2",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {80., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{120., 0.}, {160., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["3",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {140., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{180., 0.}, {220., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["4",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {200., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{240., 0.}, {280., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["5",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {260., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    InsetBox["992", {320., 30.90169943749474}, 
+     ImageScaled[{Rational[1, 2], 1}]], InsetBox[
+     PaneBox["\<\"\[Ellipsis]\[Ellipsis]\"\>",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {320., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{360., 0.}, {400., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["998",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {380., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{420., 0.}, {460., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["999",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {440., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{480., 0.}, {520., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["1000",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {500., 12.360679774997896},
+     FormatType->StandardForm]}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{40., 12.360679774997896`}, {60., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{100., 12.360679774997896`}, {120., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{160., 12.360679774997896`}, {180., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{220., 12.360679774997896`}, {240., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{280., 12.360679774997896`}, {300., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{340., 12.360679774997896`}, {360., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{400., 12.360679774997896`}, {420., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{460., 12.360679774997896`}, {480., 12.360679774997896`}}]}}},
+  AspectRatio->Automatic,
+  FormatType->StandardForm,
+  ImageSize->{524., 34.90169943749474},
+  PlotRange->{{-2., 522.}, {-2., 32.90169943749474}}]], "Output",
+ CellChangeTimes->{3.818228649360399*^9},
+ CellLabel->"Out[39]=",ExpressionUUID->"e8f3b689-b6a4-49e7-bc9e-e57556aabd40"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.818228605527849*^9, 3.818228608132849*^9}, 
+   3.818228646138403*^9},ExpressionUUID->"556df0c3-3315-4392-8bac-\
+989e29730b6f"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{0., 0.}, {40., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["1",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {20., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{60., 0.}, {100., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["2",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {80., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{120., 0.}, {160., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["3",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {140., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{180., 0.}, {220., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["4",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {200., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{240., 0.}, {280., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["5",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {260., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    InsetBox["992", {320., 30.90169943749474}, 
+     ImageScaled[{Rational[1, 2], 1}]], InsetBox[
+     PaneBox["\<\"\[Ellipsis]\[Ellipsis]\"\>",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {320., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{360., 0.}, {400., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["998",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {380., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{420., 0.}, {460., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["999",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {440., 12.360679774997896},
+     FormatType->StandardForm]}, {
+    {EdgeForm[{GrayLevel[0.5], AbsoluteThickness[0.3]}], 
+     {GrayLevel[1], RectangleBox[{480., 0.}, {520., 24.721359549995793}]}}, 
+    InsetBox[
+     PaneBox["1000",
+      Alignment->{Center, Center},
+      ImageSize->{40, 24.721359549995793`},
+      ImageSizeAction->"ShrinkToFit"], {500., 12.360679774997896},
+     FormatType->StandardForm]}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{40., 12.360679774997896`}, {60., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{100., 12.360679774997896`}, {120., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{160., 12.360679774997896`}, {180., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{220., 12.360679774997896`}, {240., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{280., 12.360679774997896`}, {300., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{340., 12.360679774997896`}, {360., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{400., 12.360679774997896`}, {420., 12.360679774997896`}}]}}, 
+   {GrayLevel[0.3], AbsolutePointSize[4], 
+    {Arrowheads[{-Small, Small}], 
+     ArrowBox[{{460., 12.360679774997896`}, {480., 12.360679774997896`}}]}}},
+  AspectRatio->Automatic,
+  FormatType->StandardForm,
+  ImageSize->{524., 34.90169943749474},
+  PlotRange->{{-2., 522.}, {-2., 32.90169943749474}}]], "Output",
+ CellChangeTimes->{3.8182286085228496`*^9},
+ CellLabel->"Out[36]=",ExpressionUUID->"14a4bdd4-ded6-4b02-8769-202a7a97f016"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{776, 872},
+WindowMargins->{{564, Automatic}, {Automatic, 54}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f22ea707-7ce2-42f1-9881-502bca4a7aae"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 160, 3, 96, "Title",ExpressionUUID->"e08a7af8-7033-445c-a688-cbe21760aefb"],
+Cell[746, 27, 213, 5, 34, "Text",ExpressionUUID->"b30caaad-357a-49e2-ad14-1c9c81bc97e1"],
+Cell[962, 34, 282, 4, 46, "Text",ExpressionUUID->"838a8615-a791-4c5f-8e81-875ebb8259e5"],
+Cell[1247, 40, 266, 8, 34, "Text",ExpressionUUID->"3051b0a7-26b2-4d12-8eff-d8db90f236ea"],
+Cell[CellGroupData[{
+Cell[1538, 52, 811, 18, 86, "Input",ExpressionUUID->"e185d61c-685f-4fb5-8342-2e376d4ef887"],
+Cell[2352, 72, 5409, 122, 102, "Output",ExpressionUUID->"2d0a9b40-a850-4806-8263-a4b912304d4b"]
+}, Open  ]],
+Cell[7776, 197, 203, 3, 34, "Text",ExpressionUUID->"6c5aa75e-514d-4ff3-957e-dece1ef5504a"],
+Cell[CellGroupData[{
+Cell[8004, 204, 812, 21, 48, "Input",ExpressionUUID->"4c92079b-1981-45b5-b0f3-b921ba1a0271"],
+Cell[8819, 227, 194, 2, 32, "Output",ExpressionUUID->"fa4c63a1-48f8-4423-9558-afc2abd64f93"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9050, 234, 162, 3, 53, "Subtitle",ExpressionUUID->"06eb0559-f6c7-4c5c-8dae-b61c4524d9dd"],
+Cell[CellGroupData[{
+Cell[9237, 241, 597, 14, 67, "Input",ExpressionUUID->"45d7a5e5-fb13-43ec-8021-d64483c7fad1"],
+Cell[9837, 257, 4666, 102, 52, "Output",ExpressionUUID->"e8f3b689-b6a4-49e7-bc9e-e57556aabd40"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14540, 364, 175, 3, 28, "Input",ExpressionUUID->"556df0c3-3315-4392-8bac-989e29730b6f"],
+Cell[14718, 369, 4668, 102, 52, "Output",ExpressionUUID->"14a4bdd4-ded6-4b02-8769-202a7a97f016"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
